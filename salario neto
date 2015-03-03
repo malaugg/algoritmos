@@ -1,0 +1,35 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+float calculosalarioNeto(float salarioBruto);
+void main()
+{
+float salarioNeto,salarioBruto,N,promedio,salarioMinimo,S,i;
+do{
+cout<<"Introducir numero de empleados: ";
+cin>> N;
+}while (!(N>0));
+S=0;
+salarioMinimo =1400;
+for(int i=1;i<=N;i++)
+{ do{
+cout<<"Ingrese salario Bruto : ";
+cin>>salarioBruto;
+}while(!(salarioBruto>=0) || !(salarioBruto > 1400));
+if (salarioBruto> 2*salarioMinimo)
+salarioNeto = calculosalarioNeto(salarioBruto);
+else
+salarioNeto = salarioBruto;
+cout<<"salario neto es: "<<salarioNeto<<endl;
+S = S + salarioNeto;
+}
+promedio = S/N;
+cout<<"El promedio es: "<<promedio;
+_getch();
+}
+float calculosalarioNeto(float salarioBruto)
+{ float X;
+X = salarioBruto - salarioBruto* (0.251);
+return(X);
+}
